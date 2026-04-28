@@ -107,7 +107,7 @@ Configured group-based NTFS permissions:
 
 ![Finance Permissions](screenshots/06-finance-folder-ntfs-permissions-group-finance.png)
 
-![Server Manager Shares](screenshots/server%20manager.png)
+![Server Manager Shares](screenshots/07-server-manager-shares.png)
 
 ---
 
@@ -289,16 +289,3 @@ This lab successfully demonstrates a working Microsoft infrastructure environmen
 - SMB shares
 - NTFS permissions
 - End-to-end user access validation
-
----
-
-## Relevant Roles
-
-This project demonstrates practical skills relevant to:
-
-- Infrastructure Engineer
-- Systems Administrator
-- Windows Server Administrator
-- Microsoft Infrastructure Engineer
-- IT Support Engineer / 2nd Line Support
-- Azure / Microsoft 365 Infrastructure Support
