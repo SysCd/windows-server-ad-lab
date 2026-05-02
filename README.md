@@ -1,7 +1,6 @@
 <p align="center">
-  <img src="docs/assets/Windows_Server_2022_logo.svg" alt="Windows Server 2022 logo" width="140">
+  <img src="docs/assets/Windows_Server_2022_logo.svg" alt="Windows Server 2022 logo" width="240">
 </p>
-
 <h1 align="center">Windows Server Active Directory Lab</h1>
 
 <p align="center">
