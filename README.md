@@ -1,34 +1,56 @@
 <p align="center">
   <img src="docs/assets/Windows_Server_2022_logo.svg" alt="Windows Server 2022 logo" width="440">
 </p>
+
 <h1 align="center">Windows Server Active Directory Lab</h1>
 
 <p align="center">
-  Local Microsoft infrastructure lab using Windows Server 2022, Active Directory Domain Services, DNS, Group Policy, SMB file shares, NTFS permissions, and a domain-joined client.
+  Local Microsoft infrastructure lab using <strong>Windows Server 2022</strong>, <strong>Active Directory Domain Services</strong>, <strong>DNS</strong>, <strong>Group Policy</strong>, SMB file shares, NTFS permissions, and a domain-joined client.
 </p>
 
 <p align="center">
   <strong>DC01</strong> · <strong>CLIENT01</strong> · <strong>erikcloud.local</strong> · <strong>AD DS</strong> · <strong>DNS</strong> · <strong>GPO</strong>
 </p>
 
-# Windows Server Active Directory Lab
+---
 
-A local Microsoft infrastructure lab built with **Windows Server 2022**, **Active Directory Domain Services**, **DNS**, **Group Policy**, SMB file shares, and a domain-joined client.
+## Project Overview
 
-The goal was to build a small company-style Windows domain and prove core infrastructure concepts end-to-end.
+This project builds a small company-style Windows domain environment and validates core infrastructure workflows end-to-end:
+
+- Domain controller deployment
+- Active Directory users and security groups
+- DNS name resolution and Domain Controller discovery
+- Group Policy baseline configuration
+- SMB file shares with NTFS permissions
+- Domain-joined client authentication
+- Group-based access control testing
 
 ---
 
-## Lab Overview
+## Tech Stack
 
-| Component         | Purpose                                          |
-| ----------------- | ------------------------------------------------ |
-| `DC01`            | Domain Controller, DNS Server, File Share Server |
-| `CLIENT01`        | Domain-joined client machine                     |
-| `erikcloud.local` | Active Directory domain                          |
-| `Group-IT`        | IT file share access group                       |
-| `Group-HR`        | HR file share access group                       |
-| `Group-Finance`   | Finance file share access group                  |
+- Windows Server 2022
+- Active Directory Domain Services
+- DNS
+- Group Policy
+- SMB file shares
+- NTFS permissions
+- Windows domain-joined client
+- PowerShell
+
+---
+
+## Environment Overview
+
+| Component | Purpose |
+|---|---|
+| `DC01` | Domain Controller, DNS Server, File Share Server |
+| `CLIENT01` | Domain-joined client machine |
+| `erikcloud.local` | Active Directory domain |
+| `Group-IT` | IT file share access group |
+| `Group-HR` | HR file share access group |
+| `Group-Finance` | Finance file share access group |
 
 ---
 
@@ -90,29 +112,13 @@ manager.user1  → Group-Managers
 
 ## 3. File Shares and NTFS Permissions
 
-Created department folders:
-
-```text
-C:\Shares\IT
-C:\Shares\HR
-C:\Shares\Finance
-```
-
 Created SMB shares:
 
-```text
-\\DC1\IT
-\\DC1\HR
-\\DC1\Finance
-```
-
-Configured group-based NTFS permissions:
-
-| Share           | Security Group  | Permission |
-| --------------- | --------------- | ---------- |
-| `\\DC1\IT`      | `Group-IT`      | Modify     |
-| `\\DC1\HR`      | `Group-HR`      | Modify     |
-| `\\DC1\Finance` | `Group-Finance` | Modify     |
+| Share | Security Group | Permission |
+|---|---|---|
+| `\\DC1\IT` | `Group-IT` | Modify |
+| `\\DC1\HR` | `Group-HR` | Modify |
+| `\\DC1\Finance` | `Group-Finance` | Modify |
 
 ![IT Permissions](screenshots/04-it-folder-ntfs-permissions-group-it.png)
 
@@ -186,12 +192,7 @@ erikcloud.local
 
 ![Client Domain Join](screenshots/14-client01-domain-join-success.png)
 
-This confirmed that `CLIENT01` could:
-
-- Resolve the domain through DNS
-- Locate the Domain Controller
-- Join the Active Directory domain
-- Authenticate domain users
+This confirmed that `CLIENT01` could resolve the domain, locate the Domain Controller, join Active Directory, and authenticate domain users.
 
 ---
 
@@ -205,21 +206,15 @@ ERIKCLOUD\finance.user1
 
 Validated access:
 
-| Test            | Result  |
-| --------------- | ------- |
+| Test | Result |
+|---|---|
 | `\\DC1\Finance` | Allowed |
-| `\\DC1\IT`      | Denied  |
-| `\\DC1\HR`      | Denied  |
-
-Finance share access succeeded:
+| `\\DC1\IT` | Denied |
+| `\\DC1\HR` | Denied |
 
 ![Finance Access Success](screenshots/15-finance-user-access-finance-share-success.png)
 
-IT share access denied:
-
 ![IT Access Denied](screenshots/16-finance-user-denied-it-share.png)
-
-HR share access denied:
 
 ![HR Access Denied](screenshots/17-finance-user-denied-hr-share.png)
 
@@ -227,38 +222,16 @@ HR share access denied:
 
 ## Key Concepts Demonstrated
 
-### Active Directory Access Model
-
 ```text
 User → Security Group → Resource Permission
 ```
-
-### DNS
 
 ```text
 Name → DNS lookup → IP address
 ```
 
-### Domain Login
-
 ```text
 CLIENT01 → DNS → DC01 → Authentication
-```
-
-### File Share Access
-
-```text
-finance.user1
-→ Group-Finance
-→ \\DC1\Finance
-→ Access allowed
-```
-
-```text
-finance.user1
-→ Not in Group-IT
-→ \\DC1\IT
-→ Access denied
 ```
 
 ---
@@ -291,7 +264,7 @@ Test-NetConnection
 
 ## Final Result
 
-This lab successfully demonstrates a working Microsoft infrastructure environment with:
+This lab demonstrates a working Microsoft infrastructure environment with:
 
 - Windows Server 2022 Domain Controller
 - Active Directory domain
