@@ -1,3 +1,17 @@
+<p align="center">
+  <img src="docs/assets/Windows_Server_2022_logo.svg" alt="Windows Server 2022 logo" width="140">
+</p>
+
+<h1 align="center">Windows Server Active Directory Lab</h1>
+
+<p align="center">
+  Local Microsoft infrastructure lab using Windows Server 2022, Active Directory Domain Services, DNS, Group Policy, SMB file shares, NTFS permissions, and a domain-joined client.
+</p>
+
+<p align="center">
+  <strong>DC01</strong> · <strong>CLIENT01</strong> · <strong>erikcloud.local</strong> · <strong>AD DS</strong> · <strong>DNS</strong> · <strong>GPO</strong>
+</p>
+
 # Windows Server Active Directory Lab
 
 A local Microsoft infrastructure lab built with **Windows Server 2022**, **Active Directory Domain Services**, **DNS**, **Group Policy**, SMB file shares, and a domain-joined client.
